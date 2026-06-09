@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Trader Pihu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+
+body{
+  font-family:'Montserrat',sans-serif;
+  background:#020810;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 55%, rgba(30,100,220,.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 80%, rgba(10,60,160,.12) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+.wrap{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:40px 20px 32px;
+  width:100%;max-width:620px;
+  animation:fadeIn .8s ease forwards;
+}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.avatar-wrap{
+  margin-bottom:22px;
+  position:relative;
+}
+.avatar-ring{
+  width:130px;height:130px;border-radius:50%;
+  padding:3px;
+  background:conic-gradient(#1a6edd,#60b0ff,#1a6edd,#0a3a8a,#1a6edd);
+  box-shadow:0 0 32px rgba(30,110,221,.45), 0 0 60px rgba(30,110,221,.18);
+}
+.avatar-ring img{
+  width:100%;height:100%;border-radius:50%;
+  object-fit:cover;border:3px solid #020810;
+  display:block;
+}
+
+.name{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,6vw,46px);
+  font-weight:700;
+  font-style:italic;
+  color:#4a9fff;
+  text-align:center;
+  letter-spacing:.01em;
+  margin-bottom:6px;
+  text-shadow:0 2px 20px rgba(30,110,221,.4);
+}
+
+.tagline{
+  font-size:11px;font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:#1a3a6a;margin-bottom:28px;
+  text-align:center;
+}
+
+.card{
+  width:100%;max-width:480px;
+  background:rgba(5,15,35,.78);
+  border:1px solid rgba(30,110,221,.25);
+  border-radius:14px;
+  padding:28px 32px 24px;
+  margin-bottom:28px;
+  backdrop-filter:blur(6px);
+  box-shadow:inset 0 1px 0 rgba(80,160,255,.12), 0 8px 40px rgba(0,0,0,.6);
+}
+
+.card-text{
+  font-size:15px;font-weight:400;
+  color:#a0b8d8;line-height:1.75;
+  text-align:center;margin-bottom:20px;
+}
+
+.card-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(30,110,221,.3),transparent);
+  margin-bottom:20px;
+}
+
+.stats{
+  display:flex;justify-content:space-around;align-items:center;
+}
+.stat{text-align:center}
+.stat-n{
+  font-family:'Montserrat',sans-serif;
+  font-size:22px;font-weight:800;
+  color:#4a9fff;letter-spacing:.02em;
+  line-height:1;
+}
+.stat-l{
+  font-size:9px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:#1a3a6a;margin-top:4px;
+}
+.stat-sep{
+  width:1px;height:36px;
+  background:rgba(30,110,221,.2);
+}
+
+.btn{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:380px;
+  background:linear-gradient(135deg,#0a3a9a 0%,#1a6edd 25%,#60b0ff 50%,#1a6edd 75%,#0a3a9a 100%);
+  background-size:200% 100%;
+  color:#ffffff;
+  font-family:'Montserrat',sans-serif;
+  font-size:14px;font-weight:800;
+  letter-spacing:.18em;text-transform:uppercase;
+  padding:18px 36px;
+  border-radius:50px;
+  text-decoration:none;
+  border:none;cursor:pointer;
+  box-shadow:0 4px 30px rgba(30,110,221,.5), 0 1px 0 rgba(255,255,255,.15) inset;
+  transition:box-shadow .2s,background-position .4s;
+  margin-bottom:20px;
+  animation:btnPulse 1.6s ease-in-out infinite;
+}
+.btn:hover{
+  animation:none;
+  transform:scale(1.07);
+  box-shadow:0 8px 48px rgba(30,110,221,.8), 0 0 24px rgba(80,160,255,.5);
+  background-position:100% 0;
+}
+@keyframes btnPulse{
+  0%  { transform:scale(1);    box-shadow:0 4px 30px rgba(30,110,221,.5); }
+  50% { transform:scale(1.06); box-shadow:0 8px 50px rgba(30,110,221,.85), 0 0 28px rgba(80,160,255,.45); }
+  100%{ transform:scale(1);    box-shadow:0 4px 30px rgba(30,110,221,.5); }
+}
+
+.resp{
+  font-size:11px;font-weight:600;
+  letter-spacing:.14em;color:#1a2a4a;
+  text-align:center;margin-bottom:10px;
+}
+.resp::before,.resp::after{content:' ✦ '}
+
+.credit-wrap{text-align:center}
+.credit-label{font-size:11px;color:#0f1e36;font-weight:400;margin-bottom:2px}
+.credit{
+  font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:#1a4a8a;text-decoration:none;
+  transition:color .2s;
+}
+.credit:hover{color:#4a9fff}
+
+@media(max-width:480px){
+  .card{padding:22px 20px 18px}
+  .card-text{font-size:14px}
+  .wrap{padding:28px 16px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="avatar-wrap">
+    <div class="avatar-ring">
+      <img src="https://cdn5.telesco.pe/file/efgYilua2aJkecjZEunZI2ip0wXAVcAuoBwYxHNLIVGQBItqqHCnpjOz7ql3lKevR39IeUFkgNfOu_HwrYV00Ifiuf27OWmXXT3YZJD9hquhBaqJotkRrdYMSg7Udqpehwy2H8KNqhHi96S0urC7lABW0y-k86BR2S1e2UY-jzgbgic-qVUttrKOHJf4JdNegtAYfECIKUZWd9FHyRlS57ZBEAV3TfamjgDKg6DZv0UN46SYWWG4N7dWoq6-v7nFcPm-cH376NSBcZ4vCaox9n5Tjh_2kK8g1FOiFH4T20gZHAPHmi3-tTlNUhPG0Ozy4p518qz_XlUjCpijIWIA4Q.jpg" alt="Trader Pihu"/>
+    </div>
+  </div>
+
+  <div class="name">Trader Pihu</div>
+  <div class="tagline">Elite Indian Stock Market Education</div>
+
+  <div class="card">
+    <p class="card-text">
+      Join the most trusted stock market education channel. Get daily Nifty analysis, chart breakdowns &amp; market insights for all major indices.
+    </p>
+    <div class="card-divider"></div>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n">9 YRS</div>
+        <div class="stat-l">Experience</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-n">17K+</div>
+        <div class="stat-l">Members</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <div class="stat-n">FREE</div>
+        <div class="stat-l">Access</div>
+      </div>
+    </div>
+  </div>
+
+  <a href="https://t.me/+1GC55htdLYVlNmU1" class="btn" target="_blank" rel="noopener">
+    Join Telegram Now
+  </a>
+
+  <div class="resp">18+ | Invest Responsibly</div>
+
+  <div class="credit-wrap">
+    <div class="credit-label">Ads managed by</div>
+    <a href="https://t.me/+TRlJl628l-FkMWE9" class="credit" target="_blank" rel="noopener">Nexgroww Agency</a>
+  </div>
+
+</div>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1329695579125808');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1329695579125808&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</body>
+</html>
