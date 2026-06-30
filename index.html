@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@ html,body{height:100%;overflow:hidden}
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:#020810;
+  background:#ffffff;
   min-height:100vh;
   display:flex;
   align-items:center;
@@ -25,8 +24,8 @@ body::before{
   content:'';
   position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 55%, rgba(30,100,220,.15) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 50% 80%, rgba(10,60,160,.12) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 60% at 50% 55%, rgba(30,100,220,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 50% 80%, rgba(10,60,160,.05) 0%, transparent 60%);
   pointer-events:none;z-index:0;
 }
 
@@ -48,11 +47,11 @@ body::before{
   width:130px;height:130px;border-radius:50%;
   padding:3px;
   background:conic-gradient(#1a6edd,#60b0ff,#1a6edd,#0a3a8a,#1a6edd);
-  box-shadow:0 0 32px rgba(30,110,221,.45), 0 0 60px rgba(30,110,221,.18);
+  box-shadow:0 0 24px rgba(30,110,221,.18), 0 0 44px rgba(30,110,221,.08);
 }
 .avatar-ring img{
   width:100%;height:100%;border-radius:50%;
-  object-fit:cover;border:3px solid #020810;
+  object-fit:cover;border:3px solid #ffffff;
   display:block;
 }
 
@@ -61,40 +60,39 @@ body::before{
   font-size:clamp(30px,6vw,46px);
   font-weight:700;
   font-style:italic;
-  color:#4a9fff;
+  color:#1a6edd;
   text-align:center;
   letter-spacing:.01em;
   margin-bottom:6px;
-  text-shadow:0 2px 20px rgba(30,110,221,.4);
+  text-shadow:none;
 }
 
 .tagline{
   font-size:11px;font-weight:700;
   letter-spacing:.28em;text-transform:uppercase;
-  color:#1a3a6a;margin-bottom:28px;
+  color:#5a7aa8;margin-bottom:28px;
   text-align:center;
 }
 
 .card{
   width:100%;max-width:480px;
-  background:rgba(5,15,35,.78);
-  border:1px solid rgba(30,110,221,.25);
+  background:#f5f9ff;
+  border:1px solid rgba(30,110,221,.18);
   border-radius:14px;
   padding:28px 32px 24px;
   margin-bottom:28px;
-  backdrop-filter:blur(6px);
-  box-shadow:inset 0 1px 0 rgba(80,160,255,.12), 0 8px 40px rgba(0,0,0,.6);
+  box-shadow:0 4px 24px rgba(20,60,140,.06);
 }
 
 .card-text{
   font-size:15px;font-weight:400;
-  color:#a0b8d8;line-height:1.75;
+  color:#445b78;line-height:1.75;
   text-align:center;margin-bottom:20px;
 }
 
 .card-divider{
   height:1px;
-  background:linear-gradient(90deg,transparent,rgba(30,110,221,.3),transparent);
+  background:linear-gradient(90deg,transparent,rgba(30,110,221,.25),transparent);
   margin-bottom:20px;
 }
 
@@ -105,17 +103,17 @@ body::before{
 .stat-n{
   font-family:'Montserrat',sans-serif;
   font-size:22px;font-weight:800;
-  color:#4a9fff;letter-spacing:.02em;
+  color:#1a6edd;letter-spacing:.02em;
   line-height:1;
 }
 .stat-l{
   font-size:9px;font-weight:700;
   letter-spacing:.2em;text-transform:uppercase;
-  color:#1a3a6a;margin-top:4px;
+  color:#7c93b8;margin-top:4px;
 }
 .stat-sep{
   width:1px;height:36px;
-  background:rgba(30,110,221,.2);
+  background:rgba(30,110,221,.15);
 }
 
 .btn{
@@ -131,7 +129,7 @@ body::before{
   border-radius:50px;
   text-decoration:none;
   border:none;cursor:pointer;
-  box-shadow:0 4px 30px rgba(30,110,221,.5), 0 1px 0 rgba(255,255,255,.15) inset;
+  box-shadow:0 4px 20px rgba(30,110,221,.3), 0 1px 0 rgba(255,255,255,.15) inset;
   transition:box-shadow .2s,background-position .4s;
   margin-bottom:20px;
   animation:btnPulse 1.6s ease-in-out infinite;
@@ -139,31 +137,31 @@ body::before{
 .btn:hover{
   animation:none;
   transform:scale(1.07);
-  box-shadow:0 8px 48px rgba(30,110,221,.8), 0 0 24px rgba(80,160,255,.5);
+  box-shadow:0 8px 32px rgba(30,110,221,.5), 0 0 18px rgba(80,160,255,.3);
   background-position:100% 0;
 }
 @keyframes btnPulse{
-  0%  { transform:scale(1);    box-shadow:0 4px 30px rgba(30,110,221,.5); }
-  50% { transform:scale(1.06); box-shadow:0 8px 50px rgba(30,110,221,.85), 0 0 28px rgba(80,160,255,.45); }
-  100%{ transform:scale(1);    box-shadow:0 4px 30px rgba(30,110,221,.5); }
+  0%  { transform:scale(1);    box-shadow:0 4px 20px rgba(30,110,221,.3); }
+  50% { transform:scale(1.06); box-shadow:0 8px 32px rgba(30,110,221,.45), 0 0 20px rgba(80,160,255,.25); }
+  100%{ transform:scale(1);    box-shadow:0 4px 20px rgba(30,110,221,.3); }
 }
 
 .resp{
   font-size:11px;font-weight:600;
-  letter-spacing:.14em;color:#1a2a4a;
+  letter-spacing:.14em;color:#8aa0c0;
   text-align:center;margin-bottom:10px;
 }
 .resp::before,.resp::after{content:' ✦ '}
 
 .credit-wrap{text-align:center}
-.credit-label{font-size:11px;color:#0f1e36;font-weight:400;margin-bottom:2px}
+.credit-label{font-size:11px;color:#a0b2cc;font-weight:400;margin-bottom:2px}
 .credit{
   font-size:11px;font-weight:700;
   letter-spacing:.1em;text-transform:uppercase;
   color:#1a4a8a;text-decoration:none;
   transition:color .2s;
 }
-.credit:hover{color:#4a9fff}
+.credit:hover{color:#1a6edd}
 
 @media(max-width:480px){
   .card{padding:22px 20px 18px}
@@ -178,16 +176,16 @@ body::before{
 
   <div class="avatar-wrap">
     <div class="avatar-ring">
-      <img src="https://cdn5.telesco.pe/file/efgYilua2aJkecjZEunZI2ip0wXAVcAuoBwYxHNLIVGQBItqqHCnpjOz7ql3lKevR39IeUFkgNfOu_HwrYV00Ifiuf27OWmXXT3YZJD9hquhBaqJotkRrdYMSg7Udqpehwy2H8KNqhHi96S0urC7lABW0y-k86BR2S1e2UY-jzgbgic-qVUttrKOHJf4JdNegtAYfECIKUZWd9FHyRlS57ZBEAV3TfamjgDKg6DZv0UN46SYWWG4N7dWoq6-v7nFcPm-cH376NSBcZ4vCaox9n5Tjh_2kK8g1FOiFH4T20gZHAPHmi3-tTlNUhPG0Ozy4p518qz_XlUjCpijIWIA4Q.jpg" alt="Trader Pihu"/>
+      <img src="https://fantasticczone.site/wp-content/uploads/2026/06/piihuuewee.jpg" alt="Trader Pihu"/>
     </div>
   </div>
 
   <div class="name">Trader Pihu</div>
-  <div class="tagline">Elite Indian Stock Market Education</div>
+  <div class="tagline">Stock Market Education</div>
 
   <div class="card">
     <p class="card-text">
-      Join the most trusted stock market education channel. Get daily Nifty analysis, chart breakdowns &amp; market insights for all major indices.
+      Join our stock market education channel for learning purposes. Get daily Nifty chart analysis, market study notes &amp; educational insights for all major indices.
     </p>
     <div class="card-divider"></div>
     <div class="stats">
@@ -212,7 +210,7 @@ body::before{
     Join Telegram Now
   </a>
 
-  <div class="resp">18+ | Invest Responsibly</div>
+  <div class="resp">For Educational Purpose Only | 18+</div>
 
   <div class="credit-wrap">
     <div class="credit-label">Ads managed by</div>
